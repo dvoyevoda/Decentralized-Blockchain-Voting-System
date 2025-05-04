@@ -27,14 +27,38 @@ A secure, transparent voting platform built on blockchain technology that enable
    ```
    npx hardhat node
    ```
-4. Deploy contracts:
+4. **Set up MetaMask:**
+   - Install the [MetaMask browser extension](https://metamask.io/).
+   - Create a new wallet or import one of the test accounts provided by Hardhat (private keys are shown in your terminal after running `npx hardhat node`).
+   - Add a new network in MetaMask:
+     - **Network Name:** Localhost 8545
+     - **New RPC URL:** http://127.0.0.1:8545
+     - **Chain ID:** 31337
+     - **Currency Symbol:** ETH
+   - Switch to this network in MetaMask.
+
+5. Deploy contracts:
    ```
    npx hardhat run scripts/deploy.js --network localhost
    ```
-5. Run frontend:
+6. Run frontend:
    ```
    cd Client && npm start
    ```
+
+## Casting a Vote
+1. Open the voting portal at [http://localhost:3000](http://localhost:3000).
+2. Connect your MetaMask wallet when prompted.
+3. Select the active election from the dropdown menu.
+4. Choose your candidate and click "Vote".
+5. MetaMask will prompt you to confirm the transaction. Review and confirm.
+6. Wait for the transaction to be mined (a notification will appear).
+7. Your vote is now recorded on the blockchain. Results update in real time.
+
+**Note:**
+- Each vote is a blockchain transaction and will require a small amount of ETH (provided by your local Hardhat node).
+- Votes are immutable and cannot be changed once confirmed.
+- If you encounter issues, ensure MetaMask is connected to the correct network and has sufficient test ETH.
 
 ## License
 MIT
